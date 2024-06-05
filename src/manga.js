@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 
 const router = express.Router();
-const BASE_URL = 'https://manga-reader-mauve.vercel.app';
+const BASE_URL = 'https://manga-reader-mauve.vercel.app/chapter';
 
 router.get('/:endpoint', async (req, res) => {
   const { endpoint } = req.params;
