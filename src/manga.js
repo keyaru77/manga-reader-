@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 
 const router = express.Router();
-const BASE_URL = 'https://manga-reader-mauve.vercel.app/chapter';
+const BASE_URL = 'https://newbaseurl.com';
 
 router.get('/:endpoint', async (req, res) => {
   const { endpoint } = req.params;
@@ -18,7 +18,7 @@ router.get('/:endpoint', async (req, res) => {
 
     data.chapters = data.chapters.map(chapter => ({
       ...chapter,
-      chapterLink: replaceBaseUrl(chapter.chapterLink),
+      chapterLink: `/chapter/${chapter.chapterLink.split('/').pop()}`,
       downloadLink: replaceBaseUrl(chapter.downloadLink)
     }));
 
