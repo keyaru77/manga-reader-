@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= data.title.trim() %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1><%= data.title.trim() %></h1>
+    <p>Previous Chapter: <a href="<%= data.prevChapterLink %>">Previous</a></p>
+    <p>Next Chapter: <a href="<%= data.nextChapterLink %>">Next</a></p>
+    <p>Download Chapter: <a href="<%= data.downloadLink %>">Download</a></p>
+    <p>All Chapters: <a href="<%= data.allChaptersLink %>">All Chapters</a></p>
+    <h2>Images</h2>
+    <div>
+        <% data.images.forEach(image => { %>
+            <img src="<%= image %>" alt="Manga Image">
+        <% }) %>
+    </div>
+</body>
+</html>
