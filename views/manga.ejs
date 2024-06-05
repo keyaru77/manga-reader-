@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= data.title %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1><%= data.title.trim() %></h1>
+    <h2>Chapters</h2>
+    <p>First Chapter: <a href="<%= data.firstChapter.link %>"><%= data.firstChapter.text.trim() %></a></p>
+    <p>Last Chapter: <a href="<%= data.lastChapter.link %>"><%= data.lastChapter.text.trim() %></a></p>
+    <h2>Info</h2>
+    <p>Rating: <%= data.rating %></p>
+    <p>Status: <%= data.info.Status %></p>
+    <p>Jenis Komik: <%= data.info['Jenis Komik'] %></p>
+    <p>Author: <%= data.info.Author %></p>
+    <p>Artis: <%= data.info.Artis %></p>
+    <p>Rilis: <%= data.info.Rilis %></p>
+    <p>Serialisasi: <%= data.info.Serialisasi %></p>
+    <p>Jumlah Pembaca: <%= data.info['Jumlah Pembaca'] %></p>
+    <h2>Genres</h2>
+    <ul>
+        <% data.genres.forEach(genre => { %>
+            <li><a href="<%= genre.href %>"><%= genre.title %></a></li>
+        <% }) %>
+    </ul>
+    <h2>Synopsis</h2>
+    <p><%= data.synopsis.trim() %></p>
+    <h2>Related Manga</h2>
+    <ul>
+        <% data.relatedManga.forEach(manga => { %>
+            <li><a href="<%= manga.href %>"><%= manga.title %></a></li>
+        <% }) %>
+    </ul>
+    <h2>Chapters</h2>
+    <ul>
+        <% data.chapters.forEach(chapter => { %>
+            <li>
+                <a href="<%= chapter.chapterLink %>"><%= chapter.chapter.trim() %></a> - <%= chapter.chapterDate %>
+                <a href="<%= chapter.downloadLink %>">(Download)</a>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
